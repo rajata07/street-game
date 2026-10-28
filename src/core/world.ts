@@ -175,7 +175,10 @@ export class World {
       this.addObstacle(b.typeId, roadLaneCenterX(b.lane), -type.height / 2 - 10, 0);
     }
     if (row.pickupLane !== null) {
-      this.addPickup(roadLaneCenterX(row.pickupLane), -tallest / 2 - 10 + 0.5 * row.gap * this.speed);
+      this.addPickup(
+        roadLaneCenterX(row.pickupLane),
+        -tallest / 2 - 10 + 0.5 * row.gap * this.speed,
+      );
     }
   }
 

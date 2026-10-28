@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { GAME_HEIGHT, GAME_WIDTH } from '../core/config';
+import { createRoadTexture } from '../entities/StreetBackground';
 
 export class BootScene extends Phaser.Scene {
   constructor() {
@@ -7,13 +7,7 @@ export class BootScene extends Phaser.Scene {
   }
 
   create(): void {
-    this.add
-      .text(GAME_WIDTH / 2, GAME_HEIGHT / 2, 'Gali Runner\nBhaiya, side de!', {
-        fontFamily: 'sans-serif',
-        fontSize: '32px',
-        color: '#ffd23f',
-        align: 'center',
-      })
-      .setOrigin(0.5);
+    createRoadTexture(this);
+    this.scene.start('MenuScene');
   }
 }
