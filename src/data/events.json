@@ -1,0 +1,7 @@
+[
+  { "id": "honk_chorus", "caption": "Pom pom pom! Honking chorus!", "weight": 3, "minTime": 0 },
+  { "id": "cow_crossing", "caption": "Gau mata crossing! Sabr rakho!", "weight": 3, "minTime": 0 },
+  { "id": "chai_break", "caption": "Chai break! Grab the cutting chai!", "weight": 3, "minTime": 0 },
+  { "id": "wedding_band", "caption": "Baraat aa gayi! Band baaja!", "weight": 2, "minTime": 20 },
+  { "id": "dog_chase", "caption": "Kutta peeche pada hai! Double points, run!", "weight": 2, "minTime": 0 }
+]

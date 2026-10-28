@@ -1,0 +1,86 @@
+[
+  {
+    "id": "rickshaw",
+    "emoji": "🛺",
+    "fontSize": 70,
+    "width": 76,
+    "height": 76,
+    "weight": 30,
+    "crashLines": [
+      "Rickshaw bhaiya said \"Meter se chalega!\" Too late.",
+      "Auto uncle did a perfect U-turn... right into you."
+    ]
+  },
+  {
+    "id": "bus",
+    "emoji": "🚌",
+    "fontSize": 96,
+    "width": 100,
+    "height": 100,
+    "weight": 12,
+    "crashLines": [
+      "The bus never read the brakes manual.",
+      "Bus horn louder than your scream!"
+    ]
+  },
+  {
+    "id": "scooter",
+    "emoji": "🛵",
+    "fontSize": 58,
+    "width": 58,
+    "height": 62,
+    "weight": 25,
+    "crashLines": [
+      "Scooter uncle with 4 family members said hello.",
+      "Triple seat scooter! Traffic rules not included."
+    ]
+  },
+  {
+    "id": "cycle",
+    "emoji": "🚲",
+    "fontSize": 58,
+    "width": 56,
+    "height": 62,
+    "weight": 15,
+    "crashLines": [
+      "Cycle ki ghanti: tring tring... BOOM.",
+      "The milkman's cycle with 12 cans got you."
+    ]
+  },
+  {
+    "id": "handcart",
+    "emoji": "🛒",
+    "fontSize": 66,
+    "width": 72,
+    "height": 66,
+    "weight": 10,
+    "crashLines": [
+      "Thela fully loaded: bananas everywhere!",
+      "The fruit thela wins this round."
+    ]
+  },
+  {
+    "id": "cow",
+    "emoji": "🐄",
+    "fontSize": 72,
+    "width": 76,
+    "height": 70,
+    "weight": 8,
+    "crashLines": [
+      "Gau mata has right of way. Always.",
+      "The cow stared. You blinked. Cow wins."
+    ]
+  },
+  {
+    "id": "band",
+    "emoji": "🎺🥁🎷",
+    "fontSize": 66,
+    "width": 220,
+    "height": 80,
+    "weight": 0,
+    "crashLines": [
+      "The baraat band drowned out your scream.",
+      "You joined the wedding dance... involuntarily."
+    ]
+  }
+]
