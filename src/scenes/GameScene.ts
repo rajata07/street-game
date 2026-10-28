@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { sfx } from '../audio/sfx';
 import { GAME_HEIGHT, GAME_WIDTH, PLAYER_Y, roadLaneCenterX } from '../core/config';
 import { HighScoreStore } from '../core/highscore';
+import { getPlayerFace } from '../core/player';
 import type { WorldEvent } from '../core/types';
 import { World } from '../core/world';
 import { StreetBackground } from '../entities/StreetBackground';
@@ -43,7 +44,7 @@ export class GameScene extends Phaser.Scene {
     this.background = new StreetBackground(this);
 
     this.player = this.add
-      .text(this.world.playerX, PLAYER_Y, '🏃', { fontSize: '48px' })
+      .text(this.world.playerX, PLAYER_Y, getPlayerFace(safeStorage()), { fontSize: '48px' })
       .setOrigin(0.5)
       .setDepth(10);
     this.dog = this.add

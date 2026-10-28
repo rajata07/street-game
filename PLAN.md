@@ -1,4 +1,4 @@
-# Gali Runner – Plan
+# Fancy Game – Plan
 
 Stack: Phaser 3 + TypeScript + Vite, Vitest, ESLint/Prettier. Pure logic in `src/core/` (no Phaser), rendering in `src/scenes` and `src/entities`.
 

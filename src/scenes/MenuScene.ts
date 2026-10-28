@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { sfx } from '../audio/sfx';
 import { GAME_HEIGHT, GAME_WIDTH } from '../core/config';
 import { HighScoreStore } from '../core/highscore';
+import { getPlayerFace, PLAYER_FACES, setPlayerFace } from '../core/player';
 import { StreetBackground } from '../entities/StreetBackground';
 
 export class MenuScene extends Phaser.Scene {
@@ -17,7 +18,7 @@ export class MenuScene extends Phaser.Scene {
 
     const cx = GAME_WIDTH / 2;
     this.add
-      .text(cx, 190, 'GALI RUNNER', {
+      .text(cx, 190, 'Fancy Game', {
         fontFamily: 'Impact, sans-serif',
         fontSize: '64px',
         color: '#ffd23f',
@@ -26,24 +27,54 @@ export class MenuScene extends Phaser.Scene {
       })
       .setOrigin(0.5);
     this.add
-      .text(cx, 262, 'Bhaiya, side de!', {
+      .text(cx, 255, 'Bhaiya, side de!', {
         fontFamily: 'sans-serif',
         fontSize: '26px',
         color: '#ffffff',
       })
       .setOrigin(0.5);
 
-    const emojis = this.add.text(cx, 340, '🛺 🚌 🛵 🐄 🚲', { fontSize: '40px' }).setOrigin(0.5);
-    this.tweens.add({ targets: emojis, y: 352, yoyo: true, repeat: -1, duration: 600 });
+    const emojis = this.add.text(cx, 320, '🛺 🚌 🛵 🐄 🚲', { fontSize: '40px' }).setOrigin(0.5);
+    this.tweens.add({ targets: emojis, y: 332, yoyo: true, repeat: -1, duration: 600 });
 
     const best = new HighScoreStore(safeStorage()).get();
     this.add
-      .text(cx, 430, `Best: ${best}`, {
+      .text(cx, 385, `Best: ${best}`, {
         fontFamily: 'sans-serif',
         fontSize: '24px',
         color: '#9be564',
       })
       .setOrigin(0.5);
+
+    this.add
+      .text(cx, 438, 'Choose your face', {
+        fontFamily: 'sans-serif',
+        fontSize: '20px',
+        color: '#ffffff',
+      })
+      .setOrigin(0.5);
+    const storage = safeStorage();
+    let selectedFace = getPlayerFace(storage);
+    const faceButtons: Phaser.GameObjects.Rectangle[] = [];
+    PLAYER_FACES.forEach((face, index) => {
+      const x = cx + (index - (PLAYER_FACES.length - 1) / 2) * 58;
+      const button = this.add
+        .rectangle(x, 490, 52, 58, 0x222222, 0.9)
+        .setStrokeStyle(face === selectedFace ? 3 : 1, face === selectedFace ? 0xffd23f : 0xaaaaaa)
+        .setInteractive({ useHandCursor: true });
+      this.add.text(x, 490, face, { fontSize: '34px' }).setOrigin(0.5);
+      faceButtons.push(button);
+      button.on('pointerdown', () => {
+        selectedFace = face;
+        setPlayerFace(storage, selectedFace);
+        faceButtons.forEach((faceButton, buttonIndex) =>
+          faceButton.setStrokeStyle(
+            PLAYER_FACES[buttonIndex] === selectedFace ? 3 : 1,
+            PLAYER_FACES[buttonIndex] === selectedFace ? 0xffd23f : 0xaaaaaa,
+          ),
+        );
+      });
+    });
 
     const prompt = this.add
       .text(cx, 540, 'Tap or press SPACE to start', {
@@ -76,7 +107,9 @@ export class MenuScene extends Phaser.Scene {
     };
     this.input.keyboard?.on('keydown-SPACE', start);
     this.input.keyboard?.on('keydown-ENTER', start);
-    this.input.once('pointerdown', start);
+    this.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
+      if (pointer.y >= 525) start();
+    });
   }
 
   update(_time: number, delta: number): void {
